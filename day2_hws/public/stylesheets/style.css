@@ -1,0 +1,17 @@
+h1{
+  color: rgb(87, 6, 9);
+  text-align: center;
+  font: 50px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+p{
+  font: 15px "Lucida Grande", Helvetica, Arial, sans-serif;
+  text-align: center;
+  color: #0c313f;
+  padding: 10px;
+}
+img {
+   width: 500px;
+  height: auto;  
+  border: 3px solid #0d0606;
+}

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Travel Home</title>
+</head>
+<body>
+
+  <!-- Welcome Message -->
+  <h1><%= WelcomeMessage %></h1>
+
+  <!-- Travel Places -->
+  <ul>
+    <% for (let i = 0; i < places.length; i++) { %>
+      <li>
+        <strong><%= places[i].name %></strong> - <%= places[i].country %>
+
+        <% if (places[i].isPopular) { %>
+          <span>  Popular Destination!</span>
+        <% } %>
+      </li>
+    <% } %>
+  </ul>
+
+  <!-- Script -->
+  <script>
+    alert("Welcome to our travel website!");
+  </script>
+
+</body>
+</html>
