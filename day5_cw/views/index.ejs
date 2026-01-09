@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Daily Quotes Signup</title>
+  <style>
+    body { font-family: Arial; padding: 40px; }
+    input { display: block; margin: 10px 0; padding: 8px; width: 250px; }
+    button { padding: 8px 15px; }
+    .error { color: red; }
+    .success { color: green; }
+  </style>
+</head>
+<body>
+
+  <h2>Sign up for Daily Quotes</h2>
+
+  <% if (error) { %>
+    <p class="error"><%= error %></p>
+  <% } %>
+
+  <% if (success) { %>
+    <p class="success"><%= success %></p>
+  <% } %>
+
+  <form action="/signup" method="POST">
+    <input type="text" name="username" placeholder="Username">
+    <input type="email" name="email" placeholder="Email">
+    <input type="password" name="password" placeholder="Password">
+    <button type="submit">Sign Up</button>
+  </form>
+
+</body>
+</html>
