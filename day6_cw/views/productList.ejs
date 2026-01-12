@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Product List</title>
+</head>
+<body>
+
+<h2>Product List (Cheapest First)</h2>
+
+<ul>
+  <% products.forEach(p => { %>
+    <li>
+      <%= p.name %> - ₹<%= p.price %>
+    </li>
+  <% }) %>
+</ul>
+
+</body>
+</html>
