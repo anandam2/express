@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Online Notes | Professional Dashboard</title>
+  
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+  
+  <style>
+    :root {
+      --primary-color: #2563eb;
+      --bg-light: #f8fafc;
+    }
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: var(--bg-light);
+      color: #1e293b;
+    }
+    .navbar {
+      background: white;
+      border-bottom: 1px solid #e2e8f0;
+    }
+    .navbar-brand {
+      font-weight: 700;
+      color: var(--primary-color) !important;
+      letter-spacing: -0.5px;
+    }
+    .main-content {
+      min-height: calc(100vh - 120px);
+      padding-top: 2rem;
+      padding-bottom: 4rem;
+    }
+    /* Smooth transitions for all buttons */
+    .btn {
+      border-radius: 8px;
+      font-weight: 500;
+      transition: all 0.2s ease;
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="navbar navbar-expand-lg sticky-top">
+    <div class="container">
+      <a class="navbar-brand" href="/">
+        <span class="text-primary">●</span> NotesApp
+      </a>
+      <div class="d-flex align-items-center">
+        <a href="/login" class="btn btn-link text-decoration-none text-muted me-2">Login</a>
+        <a href="/signup" class="btn btn-primary px-4">Signup</a>
+      </div>
+    </div>
+  </nav>
+
+  <main class="container main-content">
+    <%- body %>
+  </main>
+
+  <footer class="text-center py-4 text-muted border-top bg-white">
+    <small>&copy; 2026 Online Notes. All rights reserved.</small>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
