@@ -1,0 +1,27 @@
+<div class="row justify-content-center">
+    <div class="col-md-6">
+        <% if (success) { %> <div class="alert alert-success"><%= success %></div> <% } %>
+        <% if (error) { %> <div class="alert alert-danger"><%= error %></div> <% } %>
+        
+        <div class="card shadow">
+            <div class="card-header bg-primary text-white text-center"><h4>Add New Mobile</h4></div>
+            <div class="card-body p-4">
+                <form action="/phones" method="post">
+                    <div class="mb-3">
+                        <label class="form-label">Mobile Name</label>
+                        <input type="text" name="name" class="form-control" placeholder="iPhone 15" required>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Price</label>
+                        <input type="number" name="price" class="form-control" placeholder="999" required>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Description</label>
+                        <textarea name="description" class="form-control" rows="3"></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary w-100">SUBMIT</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

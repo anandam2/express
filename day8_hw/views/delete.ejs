@@ -1,0 +1,65 @@
+<div class="row justify-content-center py-5">
+    <div class="col-12 col-md-8 col-lg-5">
+        
+        <div class="text-center mb-5">
+            <div class="mb-4 d-inline-block">
+                <div class="rounded-circle bg-danger bg-opacity-10 d-flex align-items-center justify-content-center shadow-sm mx-auto" style="width: 80px; height: 80px;">
+                    <i class="bi bi-trash3-fill text-danger fs-2"></i>
+                </div>
+            </div>
+            <h2 class="h3 fw-bold text-dark">Delete this product?</h2>
+            <p class="text-muted mx-auto" style="max-width: 300px;">
+                This action is permanent and cannot be undone. Please review the details carefully.
+            </p>
+        </div>
+
+        <div class="card border-0 shadow-lg rounded-4 overflow-hidden mb-5">
+            <div class="bg-dark p-3 text-center">
+                <span class="text-white-50 small fw-semibold text-uppercase tracking-wider">Product Identification</span>
+            </div>
+            <div class="card-body p-0">
+                <div class="d-flex justify-content-between align-items-center p-4 border-bottom">
+                    <span class="text-secondary small fw-medium text-uppercase">Name</span>
+                    <span class="text-dark fw-bold"><%= product.name %></span>
+                </div>
+                
+                <div class="d-flex justify-content-between align-items-center p-4 border-bottom bg-light bg-opacity-25">
+                    <span class="text-secondary small fw-medium text-uppercase">Valuation</span>
+                    <span class="badge rounded-pill bg-success-subtle text-success fs-6 px-3">
+                        $<%= product.price %>
+                    </span>
+                </div>
+
+                <div class="p-4 bg-white">
+                    <span class="text-secondary small fw-medium text-uppercase d-block mb-2">Description</span>
+                    <p class="text-muted small mb-0 lh-base italic">
+                        "<%= product.description %>"
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <form method="POST" action="/products/delete/<%= product._id %>" class="d-flex flex-column gap-3 text-center">
+            <button type="submit" class="btn btn-danger btn-lg py-3 fw-bold shadow hover-grow transition-all">
+                Confirm Deletion
+            </button>
+            <a href="/products/list" class="btn btn-link text-decoration-none text-secondary fw-medium py-2">
+                <i class="bi bi-arrow-left-short"></i> No, keep this product
+            </a>
+        </form>
+
+    </div>
+</div>
+
+<style>
+    /* Custom High-End Touches */
+    .tracking-wider { letter-spacing: 0.1em; }
+    .rounded-4 { border-radius: 1rem !important; }
+    .transition-all { transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); }
+    .hover-grow:hover { 
+        transform: translateY(-2px);
+        box-shadow: 0 10px 15px -3px rgba(220, 53, 69, 0.4) !important;
+    }
+    .bg-success-subtle { background-color: #e6fcf5; color: #0ca678; }
+    .italic { font-style: italic; }
+</style>

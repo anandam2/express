@@ -1,0 +1,103 @@
+<div class="d-flex justify-content-between align-items-center mb-4">
+    <h2 class="fw-bold text-dark mb-0">Product Inventory</h2>
+    <span class="badge bg-primary-subtle text-primary px-3 py-2 rounded-pill">
+        Total Items: <%= data.length %>
+    </span>
+</div>
+
+<div class="table-responsive">
+    <table class="table table-hover align-middle border-top">
+        <thead class="bg-light">
+            <tr>
+                <th class="py-3 ps-4 text-uppercase small fw-bold text-secondary">Product Name</th>
+                <th class="py-3 text-uppercase small fw-bold text-secondary">Price</th>
+                <th class="py-3 text-uppercase small fw-bold text-secondary">Description</th>
+                <th class="py-3 pe-4 text-end text-uppercase small fw-bold text-secondary">Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% if (data.length === 0) { %>
+                <tr>
+                    <td colspan="4" class="py-5 text-center">
+                        <div class="text-muted">
+                            <i class="bi bi-box2 fs-1 d-block mb-2 opacity-25"></i>
+                            <p class="mb-0">No products found in the database.</p>
+                        </div>
+                    </td>
+                </tr>
+            <% } %>
+
+            <% data.forEach(function(product){ %>
+                <tr class="transition-all">
+                    <td class="ps-4 fw-semibold text-dark">
+                        <%= product.name.toUpperCase() %>
+                    </td>
+                    <td>
+                        <span class="badge bg-success-subtle text-success px-3 py-2">
+                            $<%= product.price %>
+                        </span>
+                    </td>
+                    <td class="text-secondary small">
+                        <%= product.description %>
+                    </td>
+                    <td class="pe-4 text-end">
+                        <div class="btn-group shadow-sm rounded">
+                            <a href="/products/edit/<%= product._id %>" 
+                               class="btn btn-white btn-sm border text-primary hover-bg-light">
+                                <i class="bi bi-pencil-square me-1"></i> Edit
+                            </a>
+                            <a href="/products/delete/<%= product._id %>" 
+                               class="btn btn-white btn-sm border text-danger hover-bg-light">
+                                <i class="bi bi-trash me-1"></i> Delete
+                            </a>
+                        </div>
+                    </td>
+                </tr>
+            <% }) %>
+        </tbody>
+    </table>
+</div>
+<!-- PAGINATION -->
+<% if (pagination && pagination.totalPages > 1) { %>
+  <nav class="mt-4">
+    <ul class="pagination justify-content-center">
+
+      <% if (pagination.hasPrevPage) { %>
+        <li class="page-item">
+          <a class="page-link" href="?page=<%= pagination.prevPage %>">
+            Previous
+          </a>
+        </li>
+      <% } %>
+
+      <% for (let i = 1; i <= pagination.totalPages; i++) { %>
+        <li class="page-item <%= (i === pagination.page) ? 'active' : '' %>">
+          <a class="page-link" href="?page=<%= i %>">
+            <%= i %>
+          </a>
+        </li>
+      <% } %>
+
+      <% if (pagination.hasNextPage) { %>
+        <li class="page-item">
+          <a class="page-link" href="?page=<%= pagination.nextPage %>">
+            Next
+          </a>
+        </li>
+      <% } %>
+
+    </ul>
+  </nav>
+<% } %>
+
+
+<style>
+    /* Professional Polish */
+    .table thead th { border-bottom-width: 1px; }
+    .bg-primary-subtle { background-color: #e7f1ff; }
+    .bg-success-subtle { background-color: #e6fcf5; color: #0ca678; }
+    .btn-group .btn { font-size: 0.85rem; font-weight: 500; }
+    .transition-all:hover { background-color: #fbfcfe; }
+    .btn-white { background: #fff; }
+    .hover-bg-light:hover { background-color: #f8f9fa; }
+</style>

@@ -1,0 +1,34 @@
+<div class="d-flex justify-content-between align-items-center mb-4">
+    <h2>Mobile Inventory</h2>
+    <a href="/" class="btn btn-success">+ Add New</a>
+</div>
+
+<% if (success) { %> <div class="alert alert-success"><%= success %></div> <% } %>
+
+<div class="card shadow">
+    <div class="table-responsive">
+        <table class="table table-hover mb-0">
+            <thead class="table-dark">
+                <tr>
+                    <th>Name</th>
+                    <th>Price</th>
+                    <th>Description</th>
+                    <th class="text-center">Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% phones.forEach(phone => { %>
+                    <tr>
+                        <td class="fw-bold"><%= phone.name %></td>
+                        <td>$<%= phone.price %></td>
+                        <td><%= phone.description %></td>
+                        <td class="text-center">
+                            <a href="/phoneUpdate/<%= phone._id %>" class="btn btn-sm btn-warning">Edit</a>
+                            <a href="/phoneDelete/<%= phone._id %>" class="btn btn-sm btn-danger">Delete</a>
+                        </td>
+                    </tr>
+                <% }) %>
+            </tbody>
+        </table>
+    </div>
+</div>

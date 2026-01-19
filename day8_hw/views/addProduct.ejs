@@ -1,0 +1,24 @@
+<div class="mb-4">
+    <h2 class="fw-bold">Add New Product</h2>
+</div>
+
+<form action="/products" method="post">
+    <div class="mb-3">
+        <label class="form-label font-weight-bold">Product Name</label>
+        <input type="text" name="name" class="form-control" placeholder="Product Name" required>
+    </div>
+
+    <div class="mb-3">
+        <label class="form-label">Price</label>
+        <input type="text" name="price" class="form-control" placeholder="Price" required>
+    </div>
+
+    <div class="mb-3">
+        <label class="form-label">Description</label>
+        <textarea name="description" class="form-control" rows="4" placeholder="Description"></textarea>
+    </div>
+
+    <div class="mt-4">
+        <button type="submit" class="btn btn-primary px-4">Save Product</button>
+    </div>
+</form>
